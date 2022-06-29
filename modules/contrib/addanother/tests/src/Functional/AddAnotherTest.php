@@ -63,12 +63,18 @@ class AddAnotherTest extends BrowserTestBase {
     $this->submitForm($edit, 'Save');
 
     // Check that the node has been created.
-    $this->assertText(t('@post @title has been created.', [
+    // TODO: Drupal Rector Notice: Please delete the following comment after you've made any necessary changes.
+    // Verify the assertion: pageTextContains() for HTML responses, responseContains() for non-HTML responses.
+    // The passed text should be HTML decoded, exactly as a human sees it in the browser.
+    $this->assertSession()->pageTextContains(t('@post @title has been created.', [
       '@post' => $node_type,
       '@title' => $edit['title[0][value]'],
-    ]), 'Node created.');
-    $this->assertText(t('You may add another @type.', ['@type' => $node_type]), 'Addanother message was presented.');
-    $this->assertLink('Add another');
+    ]));
+    // TODO: Drupal Rector Notice: Please delete the following comment after you've made any necessary changes.
+    // Verify the assertion: pageTextContains() for HTML responses, responseContains() for non-HTML responses.
+    // The passed text should be HTML decoded, exactly as a human sees it in the browser.
+    $this->assertSession()->pageTextContains(t('You may add another @type.', ['@type' => $node_type]));
+    $this->assertSession()->linkExists('Add another');
 
     // Create a node.
     $edit = [];
@@ -78,7 +84,7 @@ class AddAnotherTest extends BrowserTestBase {
     $this->submitForm($edit, 'Save and add another');
 
     // Check that the node has been created.
-    $this->assertUrl("node/add/$node_type");
+    $this->assertSession()->addressEquals("node/add/$node_type");
   }
 
 }
