@@ -1,10 +1,10 @@
-name: 'ABC Bootstrap'
+name: 'ABC Theme'
 type: theme
 description: 'ABC Bootstrap subtheme based on Bootstrap 4 theme.'
 core_version_requirement: '^8.8 || ^9'
 'base theme': bootstrap4
 libraries:
-  - abcboostrap/global-styling
+  - abcbootstrap/global-styling
 regions:
   header: Header
   nav_branding: 'Navigation branding region'
