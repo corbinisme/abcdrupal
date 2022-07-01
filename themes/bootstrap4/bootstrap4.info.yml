@@ -1,6 +1,6 @@
 name: Bootstrap4
 type: theme
-description: 'Theme with Bootstrap 4 css library'
+description: 'Theme with Bootstrap 4 css library!'
 core_version_requirement: ^8.8 || ^9
 base theme: classy
 
